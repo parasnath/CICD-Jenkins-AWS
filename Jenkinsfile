@@ -14,7 +14,7 @@ node {
         )
     }
 
-    stage('Deploy to EC2 '){
+    stage('Deploy to EC2'){
         echo 'Deploying to EC2'
         sh """
             sudo mkdir -p ${appDir}
@@ -29,5 +29,7 @@ node {
             sudo npm run build
             sudo fuser -k 3000/tcp || true
             npm run start
-    }
+            """
+
+        }
 }
